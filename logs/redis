@@ -1,0 +1,125 @@
+ Image ms-redis-proof-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 552B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 507B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.13-slim
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 72B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/python:3.13-slim
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 94B done
+#6 DONE 0.0s
+
+#7 [5/6] COPY app/app.py .
+#7 CACHED
+
+#8 [3/6] COPY app/requirements.txt .
+#8 CACHED
+
+#9 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#9 CACHED
+
+#10 [2/6] WORKDIR /app
+#10 CACHED
+
+#11 [6/6] RUN groupadd --gid 1000 counter     && useradd --uid 1000 --gid counter --no-create-home counter     && install -d -o counter -g counter /data
+#11 CACHED
+
+#12 exporting to image
+#12 exporting layers done
+#12 writing image sha256:8c692102d3ea4dcba5e067b056ecefa375729b90f84700bed18aac2f9895e775 done
+#12 naming to docker.io/library/ms-redis-proof-app done
+#12 DONE 0.0s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+ Image ms-redis-proof-app Built 
+ Network ms-redis-proof_default Creating 
+ Volume ms-redis-proof_counter_data Creating 
+ Volume ms-redis-proof_counter_data Created 
+ Network ms-redis-proof_default Created 
+ Container ms-redis-proof-redis-1 Creating 
+ Container ms-redis-proof-redis-1 Created 
+ Container ms-redis-proof-app-1 Creating 
+ Container ms-redis-proof-app-1 Created 
+ Container ms-redis-proof-redis-1 Starting 
+ Container ms-redis-proof-redis-1 Started 
+ Container ms-redis-proof-redis-1 Waiting 
+ Container ms-redis-proof-redis-1 Healthy 
+ Container ms-redis-proof-app-1 Starting 
+ Container ms-redis-proof-app-1 Started 
+ Container ms-redis-proof-redis-1 Waiting 
+ Container ms-redis-proof-app-1 Waiting 
+ Container ms-redis-proof-redis-1 Healthy 
+ Container ms-redis-proof-app-1 Healthy 
+NAME                     IMAGE                COMMAND                  SERVICE   CREATED         STATUS                   PORTS
+ms-redis-proof-app-1     ms-redis-proof-app   "python app.py"          app       6 seconds ago   Up 2 seconds (healthy)   127.0.0.1:32808->8000/tcp
+ms-redis-proof-redis-1   redis:7.4-alpine     "docker-entrypoint.s…"   redis     6 seconds ago   Up 5 seconds (healthy)   6379/tcp
+{"greeting": "Привет от Redis", "count": 0, "hostname": "163abeb47253", "storage": "redis"}
+{"greeting": "Привет от Redis", "count": 1, "hostname": "163abeb47253", "storage": "redis"}
+{"greeting": "Привет от Redis", "count": 2, "hostname": "163abeb47253", "storage": "redis"}
+{"greeting": "Привет от Redis", "count": 2, "hostname": "163abeb47253", "storage": "redis"}
+ Container ms-redis-proof-app-1 Stopping 
+ Container ms-redis-proof-app-1 Stopped 
+ Container ms-redis-proof-app-1 Removing 
+ Container ms-redis-proof-app-1 Removed 
+ Container ms-redis-proof-redis-1 Stopping 
+ Container ms-redis-proof-redis-1 Stopped 
+ Container ms-redis-proof-redis-1 Removing 
+ Container ms-redis-proof-redis-1 Removed 
+ Network ms-redis-proof_default Removing 
+ Network ms-redis-proof_default Removed 
+ Network ms-redis-proof_default Creating 
+ Network ms-redis-proof_default Created 
+ Container ms-redis-proof-redis-1 Creating 
+ Container ms-redis-proof-redis-1 Created 
+ Container ms-redis-proof-app-1 Creating 
+ Container ms-redis-proof-app-1 Created 
+ Container ms-redis-proof-redis-1 Starting 
+ Container ms-redis-proof-redis-1 Started 
+ Container ms-redis-proof-redis-1 Waiting 
+ Container ms-redis-proof-redis-1 Healthy 
+ Container ms-redis-proof-app-1 Starting 
+ Container ms-redis-proof-app-1 Started 
+ Container ms-redis-proof-app-1 Waiting 
+ Container ms-redis-proof-redis-1 Waiting 
+ Container ms-redis-proof-redis-1 Healthy 
+ Container ms-redis-proof-app-1 Healthy 
+{"greeting": "Привет от Redis", "count": 2, "hostname": "d46584e8bfc3", "storage": "redis"}
+ Container ms-redis-proof-redis-1 Stopping 
+ Container ms-redis-proof-redis-1 Stopped 
+{"status": "alive"}
+HTTP 200
+{"error": "storage_unavailable"}
+HTTP 503
+{"error": "storage_unavailable"}
+HTTP 503
+ Container ms-redis-proof-redis-1 Starting 
+ Container ms-redis-proof-redis-1 Started 
+{"status": "ready", "storage": "redis"}
+HTTP 200
+{"greeting": "Привет от Redis", "count": 2, "hostname": "d46584e8bfc3", "storage": "redis"}
+{"greeting": "Привет от Redis", "count": 3, "hostname": "d46584e8bfc3", "storage": "redis"}
+ Container ms-redis-proof-app-1 Stopping 
+ Container ms-redis-proof-app-1 Stopped 
+ Container ms-redis-proof-app-1 Removing 
+ Container ms-redis-proof-app-1 Removed 
+ Container ms-redis-proof-redis-1 Stopping 
+ Container ms-redis-proof-redis-1 Stopped 
+ Container ms-redis-proof-redis-1 Removing 
+ Container ms-redis-proof-redis-1 Removed 
+ Network ms-redis-proof_default Removing 
+ Network ms-redis-proof_default Removed 
+ Volume ms-redis-proof_counter_data Removing 
+ Volume ms-redis-proof_counter_data Removed 
