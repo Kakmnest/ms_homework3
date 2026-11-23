@@ -1,0 +1,138 @@
+#0 building with "default" instance using docker driver
+
+#1 [1/6] FROM docker.io/library/python:3.13-slim
+#1 DONE 0.0s
+
+#2 [2/6] WORKDIR /app
+#2 CACHED
+
+#3 [3/6] COPY app/requirements.txt .
+#3 CACHED
+
+#4 [internal] load build definition from Dockerfile
+#4 transferring dockerfile: 507B done
+#4 DONE 0.0s
+
+#5 [internal] load metadata for docker.io/library/python:3.13-slim
+#5 DONE 0.0s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 90B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 5.95kB done
+#7 DONE 0.0s
+
+#8 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#8 4.839 Collecting redis==5.2.1 (from -r requirements.txt (line 1))
+#8 14.17   Downloading redis-5.2.1-py3-none-any.whl.metadata (9.1 kB)
+#8 17.58 Downloading redis-5.2.1-py3-none-any.whl (261 kB)
+#8 17.93 Installing collected packages: redis
+#8 18.30 Successfully installed redis-5.2.1
+#8 18.30 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#8 18.30 
+#8 18.30 [notice] A new release of pip is available: 26.2.2 -> 26.3
+#8 18.30 [notice] To update, run: pip install --upgrade pip
+#8 DONE 18.5s
+
+#9 [5/6] COPY app/app.py .
+#9 DONE 0.0s
+
+#10 [6/6] RUN groupadd --gid 1000 counter     && useradd --uid 1000 --gid counter --no-create-home counter     && install -d -o counter -g counter /data
+#10 DONE 0.4s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.7s done
+#11 writing image sha256:efbacede3da315b46a4b16b38ca47ac5b270e2c3c0ac1311c44aeb59cd6a2ffb done
+#11 naming to docker.io/library/ms-counter-demo done
+#11 DONE 0.7s
+47b07deead33aca05c729cfe5a4af5a33a4763036617aa86896f5b016ad5090c
+curl: (56) Recv failure: Connection reset by peer
+{"greeting": "Привет от Docker", "count": 0, "hostname": "47b07deead33", "storage": "sqlite"}
+{"greeting": "Привет от Docker", "count": 1, "hostname": "47b07deead33", "storage": "sqlite"}
+2026-11-23 15:03:19,244 listening port=8000 storage=sqlite
+2026-11-23 15:03:20,155 http 172.17.0.1 "GET / HTTP/1.1" 200 -
+2026-11-23 15:03:20,174 http 172.17.0.1 "POST /increment HTTP/1.1" 200 -
+counter-proof-242356
+ Image sqlite-proof-242356-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 562B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 507B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.13-slim
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 90B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/python:3.13-slim
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 94B done
+#6 DONE 0.0s
+
+#7 [2/6] WORKDIR /app
+#7 CACHED
+
+#8 [3/6] COPY app/requirements.txt .
+#8 CACHED
+
+#9 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#9 CACHED
+
+#10 [5/6] COPY app/app.py .
+#10 CACHED
+
+#11 [6/6] RUN groupadd --gid 1000 counter     && useradd --uid 1000 --gid counter --no-create-home counter     && install -d -o counter -g counter /data
+#11 CACHED
+
+#12 exporting to image
+#12 exporting layers done
+#12 writing image sha256:eab47636555eb62649b930ab5ea5e79348435611e86c6035e42094db7f6f4bfe done
+#12 naming to docker.io/library/sqlite-proof-242356-app done
+#12 DONE 0.0s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+ Image sqlite-proof-242356-app Built 
+ Volume sqlite-proof-242356_sqlite_data Creating 
+ Network sqlite-proof-242356_default Creating 
+ Volume sqlite-proof-242356_sqlite_data Created 
+ Network sqlite-proof-242356_default Created 
+ Container sqlite-proof-242356-app-1 Creating 
+ Container sqlite-proof-242356-app-1 Created 
+ Container sqlite-proof-242356-app-1 Starting 
+ Container sqlite-proof-242356-app-1 Started 
+curl: (56) Recv failure: Connection reset by peer
+{"greeting": "Привет от Compose", "count": 0, "hostname": "a3305fe7db39", "storage": "sqlite"}
+{"greeting": "Привет от Compose", "count": 1, "hostname": "a3305fe7db39", "storage": "sqlite"}
+ Container sqlite-proof-242356-app-1 Stopping 
+ Container sqlite-proof-242356-app-1 Stopped 
+ Container sqlite-proof-242356-app-1 Removing 
+ Container sqlite-proof-242356-app-1 Removed 
+ Network sqlite-proof-242356_default Removing 
+ Network sqlite-proof-242356_default Removed 
+ Network sqlite-proof-242356_default Creating 
+ Network sqlite-proof-242356_default Created 
+ Container sqlite-proof-242356-app-1 Creating 
+ Container sqlite-proof-242356-app-1 Created 
+ Container sqlite-proof-242356-app-1 Starting 
+ Container sqlite-proof-242356-app-1 Started 
+curl: (56) Recv failure: Connection reset by peer
+{"greeting": "Привет от Compose", "count": 1, "hostname": "89a27eb64eb5", "storage": "sqlite"}
+ Container sqlite-proof-242356-app-1 Stopping 
+ Container sqlite-proof-242356-app-1 Stopped 
+ Container sqlite-proof-242356-app-1 Removing 
+ Container sqlite-proof-242356-app-1 Removed 
+ Volume sqlite-proof-242356_sqlite_data Removing 
+ Network sqlite-proof-242356_default Removing 
+ Volume sqlite-proof-242356_sqlite_data Removed 
+ Network sqlite-proof-242356_default Removed 
